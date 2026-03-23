@@ -7,14 +7,7 @@ This phase covers setting up the on-premises infrastructure including:
 - Creating OUs/Users/Groups
 - Installing and configuring Exchange Server 2019 on Lab-EX01
 **Status: ✅ Complete**
-
----
-
-## Prerequisites
-- Lab-DC01 and Lab-EX01 VMs running in Azure
-- Both VMs on the same VNet (Lab-VNet)
-- Static private IPs assigned (DC: 10.0.1.4, Exchange: 10.0.1.5)
-
+  
 ---
 
 ## Part A: Domain Controller Setup (Lab-DC01)
@@ -31,34 +24,41 @@ This phase covers setting up the on-premises infrastructure including:
 3. Check **Active Directory Domain Services**
    <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/43dab105-e3b2-414f-adb6-a949f50d458a" />
    
-6. Click **Add Features** → **Install**
+4. Click **Add Features** → **Install**
    <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/23e51178-07e6-4976-89d6-6d4a6adf6090" />
    <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/28e2eebc-954d-4b0f-8a4d-32945387148e" />
-
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e1ceb185-bb3c-4cac-9b14-499f5f6c3753" />
 
 
 ### Step 2: Promote to Domain Controller
 1. Click the **⚠️ yellow flag** in Server Manager
 2. Click **"Promote this server to a domain controller"**
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b7990653-f370-4e67-96ca-e3b80905a78d" />
+   
 3. Select **"Add a new forest"**
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a8d7e43f-4f36-4cae-943c-33db502d7e42" />
+
 4. Configure settings:
+   - set password
+   - skip DNS delegation
+   - specify default paths
+   - review options and pre-requisite checks
 
 | Setting | Value |
 |---|---|
-| Root domain name | corp.lab |
+| Root domain name | M365LAb.in |
 | Forest functional level | Windows Server 2016 |
 | Domain functional level | Windows Server 2016 |
 | DNS Server | ✅ Enabled |
 | DSRM Password | (save securely) |
 
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e14ee494-a72f-4ea2-9914-ca50bf0023cf" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b4122875-3fef-436c-998e-5dbbd2c974df" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/42b63623-22ce-468f-afe1-1231bcb2d30c" />
+
 5. Click through wizard → **Install** → Server reboots automatically
 
-### Step 3: Raise Forest & Domain Functional Level
-1. Open **Active Directory Domains and Trusts**
-2. Right-click root node → **Raise Forest Functional Level** → Windows Server 2016
-3. Right-click domain → **Raise Domain Functional Level** → Windows Server 2016
-
-### Step 4: Create OU & Test Users
+### Step 3: Create OU & Test Users
 1. Open **Active Directory Users and Computers**
 2. Right-click domain → **New** → **Organizational Unit** → Name: `LabUsers`
 3. Right-click LabUsers → **New** → **User** → Fill in details
