@@ -2,9 +2,10 @@
 
 ## Overview
 This phase covers setting up the on-premises infrastructure including:
+- Installing Active Directory Domain Services
 - Promoting Lab-DC01 as a Domain Controller
+- Creating OUs/Users/Groups
 - Installing and configuring Exchange Server 2019 on Lab-EX01
-
 **Status: ✅ Complete**
 
 ---
@@ -20,9 +21,21 @@ This phase covers setting up the on-premises infrastructure including:
 
 ### Step 1: Install AD DS Role
 1. Open **Server Manager** → **Manage** → **Add Roles and Features**
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e577cda1-eabe-43c3-99f3-4c8317de44cb" />
+   
 2. Select **Role-based or feature-based installation**
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a9c1e942-9190-48ec-9847-f6b2f10958af" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/20405dc9-cd53-4cd7-bc07-2522aa86b3c2" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3a5888c6-2c90-4a31-b79b-59266df385f3" />
+   
 3. Check **Active Directory Domain Services**
-4. Click **Add Features** → **Install**
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/43dab105-e3b2-414f-adb6-a949f50d458a" />
+   
+6. Click **Add Features** → **Install**
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/23e51178-07e6-4976-89d6-6d4a6adf6090" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/28e2eebc-954d-4b0f-8a4d-32945387148e" />
+
+
 
 ### Step 2: Promote to Domain Controller
 1. Click the **⚠️ yellow flag** in Server Manager
