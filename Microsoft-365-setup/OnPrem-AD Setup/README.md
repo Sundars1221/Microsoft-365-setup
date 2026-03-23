@@ -60,8 +60,18 @@ This phase covers setting up the on-premises infrastructure including:
 
 ### Step 3: Create OU & Test Users
 1. Open **Active Directory Users and Computers**
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4ff1e7b4-c69f-48bb-9a20-efe1ed16f161" />
+  
 2. Right-click domain → **New** → **Organizational Unit** → Name: `LabUsers`
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/522b1587-e27f-4224-932c-074f181834b2" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1f6e1e8f-de42-407c-a072-95e5e03e4a46" />
+   
 3. Right-click LabUsers → **New** → **User** → Fill in details
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e0a47354-45a7-425f-89d3-5c4bf010615f" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e7e99cad-fd6b-4a41-8c59-74c8a2eeb7f3" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2d82d2c0-28af-4525-940d-3fbd21a61dd4" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/07b1aabd-5529-4a54-abb7-123f05795a90" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c2e94f07-7eec-40ee-8e44-83a57a3a6341" />
 
 ---
 
