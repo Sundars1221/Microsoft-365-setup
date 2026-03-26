@@ -1,4 +1,4 @@
-# Phase 1: On-Premises AD & Exchange Server Setup ✅
+# Phase 1: On-Premises AD Setup ✅
 
 ## Overview
 This phase covers setting up the on-premises infrastructure including:
@@ -46,7 +46,7 @@ This phase covers setting up the on-premises infrastructure including:
 
 | Setting | Value |
 |---|---|
-| Root domain name | M365LAb.in |
+| Root domain name | M365LAB.in |
 | Forest functional level | Windows Server 2016 |
 | Domain functional level | Windows Server 2016 |
 | DNS Server | ✅ Enabled |
@@ -58,7 +58,7 @@ This phase covers setting up the on-premises infrastructure including:
 
 5. Click through wizard → **Install** → Server reboots automatically
 
-### Step 3: Create OU & Test Users
+### Step 3: Create OU, Users, and Groups 
 1. Open **Active Directory Users and Computers**
    <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4ff1e7b4-c69f-48bb-9a20-efe1ed16f161" />
   
@@ -67,11 +67,27 @@ This phase covers setting up the on-premises infrastructure including:
    <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1f6e1e8f-de42-407c-a072-95e5e03e4a46" />
    
 3. Right-click LabUsers → **New** → **User** → Fill in details
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e0a47354-45a7-425f-89d3-5c4bf010615f" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e7e99cad-fd6b-4a41-8c59-74c8a2eeb7f3" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2d82d2c0-28af-4525-940d-3fbd21a61dd4" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/07b1aabd-5529-4a54-abb7-123f05795a90" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c2e94f07-7eec-40ee-8e44-83a57a3a6341" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e0a47354-45a7-425f-89d3-5c4bf010615f" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e7e99cad-fd6b-4a41-8c59-74c8a2eeb7f3" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2d82d2c0-28af-4525-940d-3fbd21a61dd4" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/07b1aabd-5529-4a54-abb7-123f05795a90" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c2e94f07-7eec-40ee-8e44-83a57a3a6341" />
+
+4. For bulk addition of user's refer PowerShell Script section
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d386a893-0c80-4c38-b855-54fc05642b8b" />
+
+5. Right-click LabUsers → **New** → **Group** → Choose either Security/Distribution
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e3f8fc3e-7b21-413c-8155-10875abed8fd" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2e75427f-bb2e-4197-a521-d363d83e69e6" />
+  
+6. Right-click Group1Security → **Propreties** → **Members** -> **Add** -> to add new members to the group/modify object types/create dynamic membership etc
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/54f9816d-f3a6-4a97-ac0f-aa9167e3ee4e" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/53c36a11-785f-4567-80a7-652a6db6a70d" />
+   <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/48e89698-d883-42cf-847b-989b8c25e04a" />
+
+
+
+
 
 ---
 
