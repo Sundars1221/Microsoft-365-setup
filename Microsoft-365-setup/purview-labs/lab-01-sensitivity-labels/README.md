@@ -1,8 +1,4 @@
-# Lab 01 — Sensitivity Labels & Information Classification
-
-**Duration:** 75 minutes | **Level:** Foundational | **Skill Area:** MIP / Labels
-
----
+# Sensitivity Labels & Information Classification
 
 ## Objectives
 
@@ -12,72 +8,85 @@
 - Apply labels manually in Word and Outlook
 - Configure and test auto-labeling policies in simulation mode
 
-## Learning Outcomes
-
-| Outcome | Validated By |
-|---------|-------------|
-| Create label hierarchy | Labels visible in Purview portal |
-| Configure protection | Encryption + markings appear in Office apps |
-| Test auto-labeling | Simulation report shows matched items |
-
----
-
-## Prerequisites
-
-- [ ] Microsoft 365 E3/E5 test tenant (or M365 E3 + AIP P2 add-on)
-- [ ] Global Admin or Compliance Admin role
-- [ ] Microsoft 365 Apps installed (Word, Outlook)
-
----
-
 ## Section A — Create Sensitivity Labels
 
-Navigate to **https://purview.microsoft.com → Solutions → Information Protection → Labels**
+Navigate to **https://purview.microsoft.com → Solutions → Information Protection → Senstivity Labels**
 
-### Step 1 — Create parent label: `Confidential`
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/90e4e237-ae73-4800-951c-c1bc5a31b782" />
+
+### Step 1 — Create parent label: `Highly Confidential`
 1. Click **Create a label**
-2. Name: `Confidential`
-3. Description: `Sensitive business data`
-4. Click **Next** through all tabs → **Create label**
 
-### Step 2 — Create child label: `Confidential - Finance`
-1. Select the **Confidential** parent label → **Add sub-label**
-2. Name: `Confidential - Finance`
-3. Under **Protection settings** → check **Encrypt content**
-4. Set permissions: Finance group = Co-Author
-5. Visual markings → Header: `CONFIDENTIAL - FINANCE`
-6. Save
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3bd202a3-7e2b-47b4-bf5b-09c157dedbbf" />
 
-### Step 3 — Create child label: `Confidential - HR`
-1. Add sub-label under **Confidential**
-2. Name: `Confidential - HR`
-3. Encryption: HR group only
-4. Header: `CONFIDENTIAL - HR ONLY` (color: red)
-5. Watermark: `HR CONFIDENTIAL`
-6. Save
+2. Name: `Confidential` and Description: `Sensitive business data`
+   
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/04197831-cb4c-4782-97df-c8d76657450f" />
 
-### Step 4 — Create label: `Internal Only`
-1. At parent level → **Create a label**
-2. Name: `Internal Only`
-3. No encryption
-4. Watermark text: `INTERNAL - DO NOT SHARE`
-5. Footer: `Internal use only`
-6. Save
+3. Click **Next** through **Scope** section, we'll enable scope for group & sites later
 
-### Step 5 — Create label: `Public`
-1. Name: `Public`
-2. No encryption, no visual markings
-3. Save
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8f027123-beb7-4805-950e-d66447f4f0e6" />
 
-### Step 6 — Verify label hierarchy
-Confirm the following structure appears in the Labels list:
-```
-Public
-Internal Only
-Confidential
-  ├── Confidential - Finance
-  └── Confidential - HR
-```
+4. Select **Control access** and **Apply content marking**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/872e5f7f-9faa-465f-abb0-60c684ba6c05" />
+
+5. Configure **Access control** and **Content marking**, then next
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b225d0c9-50b2-451b-9c21-9898611f525c" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/018a9dfc-daaf-40db-9e3b-7f10465bcd6d" />
+
+6. Skip **Auto-labelling** and **Group & sites** section
+
+7. Review settings and **Create label**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b7c049d1-3d59-4eba-a183-35b33ec989c8" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b9fecb66-088f-4194-aa7a-c87787c079f5" />
+
+
+### Step 2 — Create child label: `Confidential - HR`
+1. Create new label, Name: `Confidential - HR`  and Description: `Confidential - HR data`
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b78fb9f1-3077-4553-be1f-d740f00d56d5" />
+
+2. Click **Next** through **Scope** section
+
+3. Select **Control access** and **Apply content marking**
+
+4. Configure **Access control** and assign permissions to HR security group
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4a72485f-078a-4e03-aaf5-cb9a31a8d12f" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/30604a6c-2833-4a68-ac23-2edf2dc96539" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a10a12b2-ed7f-4432-9c1a-29f15e79dc12" />
+
+5. Assign custom permissions to block **Print** and **Forward**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3719c38d-7ed0-421a-8c75-b4ab2e495d6c" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/293459c7-3a9b-434b-ac74-f200b1059f08" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8fae095f-416d-4e4c-9eab-8a42b2ff011c" />
+
+6. Configure **Content marking**, then next
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7e492b21-7e9d-417f-96f8-07bb143ee0d2" />
+
+6. Skip **Auto-labelling** and **Group & sites** section
+
+7. Review settings and **Create label**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e0671bad-8e48-4dae-a2e2-a13102e9426c" />
+
+8. Move created label under "Confidential" label group
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/28f2f5f3-f33b-49d0-b325-58c7a6dbbdc1" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/decb8ddb-acf6-4c3d-8650-fad1e8fd9ed3" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/09d87f22-850f-4a48-a888-f2cb81eb9d48" />
 
 ---
 
