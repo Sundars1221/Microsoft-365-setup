@@ -141,7 +141,11 @@ Navigate to **Information Protection → Policies → Label publishing policies*
 
 ## Section D — Configure Auto-Labeling
 
-Navigate to **Information Protection → Auto-labeling policies → Create auto-labeling policy**
+Navigate to **Information Protection → Policies → Auto-labeling policies → Create auto-labeling policy**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/26e22375-1bf2-4b57-a6d0-2d7a3aabd95f" />
+
+
 
 ### Step 1 — Choose a template
 - Select: **Financial data**
