@@ -1,7 +1,4 @@
-# Lab 11 — Adaptive Scopes in Microsoft Purview
-
-**Duration:** 75 minutes | **Level:** Advanced | **Skill Area:** Records Management / Retention / DLP
-
+# Adaptive Scopes in Microsoft Purview
 ---
 
 ## Overview
