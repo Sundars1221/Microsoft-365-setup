@@ -119,12 +119,22 @@ Navigate to **https://purview.microsoft.com → Solutions → Data Lifecycle Man
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/139d6f01-b3b3-44bf-a98f-405ed5f52600" />
 
 3. Locations: SharePoint sites and OneDrive (All)
-4. Name the policy: `Finance Records Policy`
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/77dd52d3-57e9-4bf7-8d11-d3bf3b7ea18f" />
+
+4. Name the policy: `HR Records Policy`
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/385ece40-d23c-4ac0-867a-f706fbd8f148" />
+
 5. Click **Next → Submit**
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/35d9f8e2-e10f-44c2-b940-370b21b796a9" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5f65ac4d-a5b9-4592-83be-54168a870929" />
+  
 > ⏱ Allow up to 1 day for the label to appear in SharePoint document libraries.
 
-## Section B — Verify changes
+## Section C — Verify changes
 
 ### Step 1 — Apply the label in SharePoint
 1. Go to a SharePoint document library
