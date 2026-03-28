@@ -1,7 +1,4 @@
-# Lab 05 — Retention Policies & Labels
-
-**Duration:** 60 minutes | **Level:** Core Skill | **Skill Area:** Records Management
-
+# Retention Policies & Labels
 ---
 
 ## Objectives
