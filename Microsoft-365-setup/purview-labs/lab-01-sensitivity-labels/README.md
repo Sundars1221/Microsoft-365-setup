@@ -92,54 +92,47 @@ Navigate to **https://purview.microsoft.com → Solutions → Information Protec
 
 ## Section B — Publish Labels via Policy
 
-Navigate to **Information Protection → Label policies → Publish labels**
+Navigate to **Information Protection → Policies → Label publishing policies**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6f7742b3-ecef-4ce0-84cc-d6396c075bfe" />
 
 ### Step 1 — Create a new label policy
-1. Name: `Purview Lab Policy`
-2. Select all labels created above
-3. Click **Next**
 
-### Step 2 — Configure policy settings
-- Default label: **Internal Only**
-- ☑ Require users to apply a label
-- ☑ Users must provide justification to remove or lower a label
-- Click **Next**
+1. Select **Publish Policy**
 
-### Step 3 — Assign scope
-- Publish to: **All users and groups**
-- Click **Next → Submit**
+2. Choose senstivity labels to publish
 
-> ⏱ **Note:** Policies take up to 24 hours to fully propagate. Wait at least 30 minutes before testing in Office apps.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7be62551-709a-43c6-8341-d140f8b3df41" />
 
----
+3. Skip **admin units** assignment
 
-## Section C — Apply Labels in Office Apps
+4. Scope to **all Users and groups**
 
-### Step 1 — Test in Microsoft Word
-1. Open Word → create a new blank document
-2. In the Home ribbon, locate the **Sensitivity** button
-3. Click **Sensitivity → Confidential → Confidential - Finance**
-4. Verify the header/watermark appears automatically
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ff22613c-eb9e-4379-9d4d-756ff0f18140" />
 
-### Step 2 — Test label downgrade justification
-1. With the document labeled **Confidential - Finance**, try changing to **Public**
-2. You should be prompted for a **justification reason**
-3. Enter a reason → confirm the downgrade
+5. Configure **Settings** 
 
-### Step 3 — Test in Outlook
-1. Compose a new email
-2. Click **Sensitivity** in the message toolbar → **Internal Only**
-3. Send a test email to yourself
-4. Verify the footer appears in the sent message
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4a868630-ad78-4d28-a243-3213f992428e" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/95239dab-4486-43dc-ad39-88eddfce9efe" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aa0af832-48f5-48c2-a94a-5d814cce48df" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/379db84f-5c1b-49bf-821c-7534e11313b8" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3dac3c86-1f40-48a9-b087-4f0c06a378c4" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/34506bca-71d3-4d26-a780-8daa030dbc4a" />
 
-### Step 4 — Test external sharing block
-1. Compose a new email → apply **Confidential - Finance**
-2. Add an external Gmail address as recipient
-3. Observe the **policy tip** or block behavior before sending
+6. Name: `Default Policy`
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3e6dc4e9-76d2-43aa-853c-412dca335dad" />
+
+7. Review settings and **Submit** to create label policy
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5207f73c-dd20-4ef7-99fd-2f2cbb428874" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bb7aae95-7749-4bb4-8abd-5bb31c326e81" />
+
+> ⏱ **Note:** Policies take up to 24 hours to fully propagate.
 
 ---
 
-## Section D — Configure Auto-Labeling
+## Section C — Configure Auto-Labeling
 
 Navigate to **Information Protection → Auto-labeling policies → Create auto-labeling policy**
 
