@@ -113,8 +113,8 @@ Navigate to **Information Protection → Policies → Label publishing policies*
 5. Configure **Settings** 
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4a868630-ad78-4d28-a243-3213f992428e" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/95239dab-4486-43dc-ad39-88eddfce9efe" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aa0af832-48f5-48c2-a94a-5d814cce48df" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/03ed824a-8898-4dd4-be53-6c74c3236934" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ca1e7afa-1155-4b09-8351-3d5dd46cddbb" />
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/379db84f-5c1b-49bf-821c-7534e11313b8" />
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3dac3c86-1f40-48a9-b087-4f0c06a378c4" />
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/34506bca-71d3-4d26-a780-8daa030dbc4a" />
@@ -132,7 +132,14 @@ Navigate to **Information Protection → Policies → Label publishing policies*
 
 ---
 
-## Section C — Configure Auto-Labeling
+## Section C — Verify changes
+
+
+
+
+---
+
+## Section D — Configure Auto-Labeling
 
 Navigate to **Information Protection → Auto-labeling policies → Create auto-labeling policy**
 
