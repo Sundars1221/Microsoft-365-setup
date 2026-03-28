@@ -136,8 +136,6 @@ EMP-10042, EMP-83771, EMP-00293
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0bc3e13f-3cb9-47b0-b0c1-d9cf6eda8288" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c2efead4-4c16-4ba6-bf94-5d160ef63b50" />
-
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9285a34f-7c67-47ce-ab3d-1e20d0a00768" />
 
 ---
