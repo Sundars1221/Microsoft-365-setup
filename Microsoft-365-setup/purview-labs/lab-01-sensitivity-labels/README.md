@@ -3,7 +3,7 @@
 ## Objectives
 
 - Create a full sensitivity label taxonomy with parent and child labels
-- Configure protection settings (encryption, visual markings, watermarks)
+- Configure protection settings (access control, watermarks)
 - Publish labels via a label policy to users
 - Apply labels manually in Word and Outlook
 - Configure and test auto-labeling policies in simulation mode
