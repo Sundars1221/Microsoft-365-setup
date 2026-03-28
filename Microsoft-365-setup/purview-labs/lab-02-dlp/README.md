@@ -1,6 +1,4 @@
-# Lab 02 — Data Loss Prevention (DLP) Policies
-
-**Duration:** 90 minutes | **Level:** Core Skill | **Skill Area:** DLP
+# Data Loss Prevention (DLP) Policies
 
 ---
 
@@ -11,23 +9,6 @@
 - Set up incident reporting and alerts
 - Test DLP with real Sensitive Information Types (SITs)
 - Review events in Activity Explorer
-
-## Learning Outcomes
-
-| Outcome | Validated By |
-|---------|-------------|
-| Create multi-location DLP policy | Policy visible, Mode = TestWithNotifications |
-| Configure block vs. notify | Policy tip appears; external send blocked |
-| Test with realistic data | Alerts appear in DLP Alerts dashboard |
-
----
-
-## Prerequisites
-
-- [ ] Lab 01 completed (sensitivity labels created)
-- [ ] Microsoft 365 E3/E5 test tenant
-- [ ] A personal external email address (Gmail) for testing
-- [ ] A test Windows device (for Endpoint DLP section)
 
 ---
 
