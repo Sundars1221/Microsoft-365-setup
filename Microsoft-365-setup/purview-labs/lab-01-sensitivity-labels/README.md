@@ -132,14 +132,24 @@ Navigate to **Information Protection → Policies → Label publishing policies*
 
 ---
 
-## Section C — Verify changes
+## Section C — Enable built-in labeling for supported Office files and PDF files in SharePoint and OneDrive
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bc006e35-0335-404a-885e-c51e23a62885" />
 
+```powershell
+Set-SPOTenant -EnableAIPIntegration $true
+```
+# Section C — Verify Changes
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/56b8f977-b28c-4dc5-93c5-9535f55056f8" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5183bdb1-e7ec-4af7-91d1-5febfc2ab720" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/619446f5-1c42-4f53-960d-6b6bafe22c0c" />
 
 ---
 
-## Section D — Configure Auto-Labeling
+## Section E — Configure Auto-Labeling
 
 Navigate to **Information Protection → Policies → Auto-labeling policies → Create auto-labeling policy**
 
