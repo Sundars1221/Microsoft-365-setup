@@ -470,38 +470,24 @@ Get-Item "C:\Users\Sundar s\Desktop\EDM Data\contosoemployeeschemaSchema.xml"
 
 ## Section F — Test EDM Classification
 
-### Step 1 — Test in the Purview SIT tester
-
-1. Navigate to **Classifiers → Sensitive info types → Contoso Employee EDM**
-2. Click **Test**
-3. Paste this content:
-
+1. Paste this test content into any text based file:
 ```
-Please process the termination for EMP-10042 (James Holloway).
-Contact: j.holloway@contoso.com for exit interview confirmation.
+Please process the termination for Employee ID EMP-10042 (James Holloway). Contact: j.holloway@contoso.com for exit interview confirmation.
 ```
 
-✅ Expected: **1 match at High confidence** (EmployeeID + corroborating LastName + Email all present)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1dc05ed3-9d03-4395-a838-651d93bea89b" />
 
-### Step 2 — Test with partial match (medium confidence)
+2. Select **ContosoEmployeeSchema** and click **Test**
 
-```
-Action required for employee EMP-10043.
-Please update records accordingly.
-```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/92df4086-5fe9-4aad-9bbd-2aadf9238778" />
 
-✅ Expected: **1 match at Medium confidence** (EmployeeID only, no corroborating fields)
+3. Upload SIT test file → **Test**
 
-### Step 3 — Test with non-existent ID (should NOT match)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/548be082-086a-46af-a787-21d9115b5cd7" />
 
-```
-Please review account EMP-99999 for access rights.
-Contact the HR team for employee number EMP-77777.
-```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e7276e22-cf20-4f2c-9e18-cc4bdebbbcff" />
 
-✅ Expected: **0 matches** — these IDs do not exist in your uploaded data
 
-> This is the power of EDM — pattern-based SITs would have matched `EMP-99999`. EDM only matches real records.
 
 ---
 
