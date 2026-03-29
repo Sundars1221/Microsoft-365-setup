@@ -316,6 +316,8 @@ EMP-10049,Fatima,Al-Hassan,f.alhassan@contoso.com,Legal,987-65-4327
 EMP-10050,Ravi,Patel,r.patel@contoso.com,Engineering,987-65-4328
 ```
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/50507476-ab95-4cd8-87b4-11c3f1691b21" />
+
 ### Step 2 — Define the EDM schema
 
 Navigate to **Purview → Classifiers → EDM classifiers → + Create EDM schema**
@@ -379,7 +381,23 @@ Navigate to **Purview → Classifiers → EDM classifiers → + Create EDM schem
 
 EDM data is **never uploaded in plaintext**. The upload tool hashes the data locally and only sends the hash to Microsoft.
 
-### Step 1 — Install the EDM Upload Agent
+### Step 1 — Create Security group named: EDM_DataUploaders
+-Account used to upload EDM data should be part of this group
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d72d27aa-3d3f-44c3-b1b7-d1b31082b3b1" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fccc2f5e-bc80-4e78-a232-067f295b4db4" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8a02719b-5ccb-46ac-af62-7472a81a48f0" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a517201a-a1d0-4a81-ab29-06089446d74d" />
+
+### Step 2 — Install the EDM Upload Agent
+
+Download link: 
+```
+https://go.microsoft.com/fwlink/?linkid=2088639"
+```
 
 ```powershell
 # Download the EDM Upload Agent
@@ -427,7 +445,7 @@ cd "C:\Program Files\Microsoft\EdmUploadAgent"
 ```powershell
 # Save your schema to XML (needed for hashing)
 .\EdmUploadAgent.exe /SaveSchema `
-    /DataStoreName ContosoEmployeeSchema `
+    /DataStoreName contosoemployeeschemaSchema `
     /OutputDir "C:\EDMData"
 
 # Verify the schema file was saved
