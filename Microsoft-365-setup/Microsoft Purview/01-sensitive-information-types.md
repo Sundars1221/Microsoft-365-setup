@@ -8,19 +8,6 @@
 - Upload and hash EDM source data
 - Test all classifiers in Content Explorer and DLP policies
   
-## Section A — Create Sensitive info type
-
-Navigate to **https://purview.microsoft.com → Solutions → Data loss prevention → Sensitive info types**
-
-
-
-## Steps
-1. Choose **Create sensitive info type**, **Name:** `Contoso Employee IDs` and **Description:** `Pattern for Contoso employee IDs`
-
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/a1cafc44-ecf6-4112-8134-e06ca7022f5a" />
-
-2. Choose **Create pattern**
-
 ## Background — Classification Methods Compared
 
 ```
@@ -43,7 +30,6 @@ e.g. matches "EMP-10042" only if 10042 is in your employee DB
 Pros: Near-zero false positives
 Cons: Requires data upload + hashing pipeline, E5 license
 ```
-
 ---
 
 ## Section A — Create a Custom Regex SIT
@@ -65,6 +51,7 @@ Navigate to **https://purview.microsoft.com → Solutions → Data loss preventi
 1. Click **+ Create pattern**
 2. **Confidence level:** High
 3. **Primary element:** Regular expression
+4. **Character proximity:** `300` characters
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e6f5243f-0929-4e0c-a542-671f40beede2" />
 
@@ -97,11 +84,7 @@ Supporting elements reduce false positives by requiring nearby keywords.
    ```
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e292d4b7-bfb9-4e78-b546-b89438d805be" />
 
-4. **Character proximity:** `300` characters
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ba38d8d1-5343-4625-a406-dd9f5a4c74b5" />
-
-5. Click **Done**
+4. Click **Done**
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/71a96183-d2c2-427c-9e20-11dcd0473828" />
 
@@ -117,7 +100,7 @@ Supporting elements reduce false positives by requiring nearby keywords.
 
 Review the pattern summary → click 
 
-### Step 7 — Test the SIT
+### Step 6 — Test the SIT
 
 1. Paste this test content into any text based file:
 ```
@@ -149,15 +132,33 @@ EMP-10042, EMP-83771, EMP-00293
 - **Name:** `Contoso Project Code`
 - **Description:** `Internal project codes in format PROJ-[YEAR]-[4 digits]`
 
-### Step 2 — Define the regex pattern
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bfe05c74-8655-4f74-be03-4d3644ce272e" />
+
+### Step 2 — Define the primary pattern
+
+1. Click **+ Create pattern**
+2. **Confidence level:** High
+3. **Primary element:** Regular expression
+4. 4. **Character proximity:** `300` characters
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d24cb372-9fbd-4192-b4c1-eb3801bf3c28" />
+
+Regex to detect `PROJ-` followed by `year-` and 5 digits:
 
 ```regex
 \bPROJ-20[0-9]{2}-[0-9]{4}\b
 ```
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f62ace3b-4151-4529-b550-48430d459af4" />
+
 Examples matched: `PROJ-2024-1042`, `PROJ-2026-9901`
 
 ### Step 3 — Add supporting keywords
+
+1. In the pattern, click **+ Add supporting element**
+2. Select: **Keyword list**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c60beb45-2af1-45a2-b472-97e513c22105" />
 
 ```
 project code
@@ -166,14 +167,43 @@ project ID
 initiative code
 ```
 
-### Step 4 — Test content
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/74dc1572-a6d2-498a-860e-bd8316363f4c" />
 
+3. Click **Done**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/43ca2f6b-a545-4f91-aa68-eb6381fbd12e" />
+
+### Step 4 — Review set confidence thresholds
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e367c8ce-3df3-453b-b1ab-8e2dff654ad1" />
+
+### Step 5 — Review and **Create**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2b634353-6878-4840-90bb-e91c76cc0170" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/680bdfa4-25ca-4d46-8edd-18767cdcaeef" />
+
+### Step 6 — Test the SIT
+
+1. Paste this test content into any text based file:
 ```
 Budget approval required for PROJ-2026-1042 and PROJ-2025-8833.
 Please include your project code on all expense submissions.
 ```
 
-✅ Expected: 2 matches
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/71c2d4a8-b572-4165-8482-fb54b5a548e1" />
+
+2. Select custom SIT **Contoso Project Code** and click **Test**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/467d8610-d170-48ba-9fe2-81f432b336f3" />
+
+3. Upload SIT test file → **Test**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d60dbc89-1ceb-45da-a844-033ba522abf5" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1e6116c0-3cf2-4a64-9c17-881703a13a07" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/39d21ef1-3829-4f3d-91d5-9e0ac7698d9d" />
 
 ---
 
@@ -201,33 +231,60 @@ Restricted Program Delta
 
 Navigate to **Classifiers → Sensitive info types → + Create**
 
-1. **Name:** `Contoso Restricted Project Names`
-2. **Description:** `Detects internal restricted project codenames`
-3. Click **Next**
+1. **Name:** `Contoso Restricted Project Names` and **Description:** `Detects internal restricted project codenames`
+2. Click **Next**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9af397ec-c8e7-400c-ab86-6f59ca386430" />
+
 4. **Create pattern** → Primary element: **Keyword dictionary**
 5. Click **+ Create keyword dictionary**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4460a278-90d6-4ba4-bad2-db1bef327ec9" />
+
 6. **Dictionary name:** `Contoso Restricted Projects`
 7. **Upload keywords:** upload your `contoso-restricted-projects.txt` file
    - Or paste the list directly into the text box
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2c1b9bb1-217a-4f85-8705-6d7c91cbef11" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ac787c68-79b0-4c90-adb7-f3bbc61f10fb" />
+
 8. Click **Done**
 
-### Step 3 — Set confidence
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5622d4ac-0a2a-4e79-a140-9b2748d3bd6e" />
 
-- High confidence: keyword dictionary match only (no supporting element needed — exact match is already precise)
-- Click **Next → Create**
+### Step 3 — Review set confidence thresholds
 
-### Step 4 — Test the dictionary SIT
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/70ed42ca-a555-4806-93d9-e0ebba9b161d" />
 
-Test content:
+### Step 5 — Review and **Create**
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2d19f1df-1d3c-4ffd-9acf-63d9229904f8" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3acc8297-f9e4-434f-94a5-c27662d1d0a3" />
+
+### Step 6 — Test the dictionary SIT
+
+1. Paste this test content into any text based file:
 ```
 Quarterly briefing: Operation Nightfall has entered Phase 2.
 All stakeholders for Project Titan should report to Room 4B.
 Standard project updates for Q3 will follow normal process.
 ```
 
-✅ Expected: 2 matches (`Operation Nightfall`, `Project Titan`)
-❌ `Standard project` should NOT match — dictionary requires exact phrase
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c268065c-642d-4e4e-91e9-78837b56bdbf" />
+
+2. Select custom SIT **Contoso Restricted Project Names** and click **Test**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4c6f6848-3b16-4728-b651-f9e16a109d69" />
+
+3. Upload SIT test file → **Test**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b0dc5630-7af3-48ee-b682-290e33bca399" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2c31d009-ad67-4faa-948c-cd20dcd4a6fa" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dd453164-7d9b-4931-8d20-4ce6d79b5d81" />
 
 ---
 
@@ -258,8 +315,6 @@ EMP-10048,Liam,Burke,l.burke@contoso.com,HR,987-65-4326
 EMP-10049,Fatima,Al-Hassan,f.alhassan@contoso.com,Legal,987-65-4327
 EMP-10050,Ravi,Patel,r.patel@contoso.com,Engineering,987-65-4328
 ```
-
-> ⚠️ Use **fake data only** in test tenants. Never upload real PII to a lab environment.
 
 ### Step 2 — Define the EDM schema
 
