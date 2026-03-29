@@ -334,15 +334,6 @@ Navigate to **Purview → Classifiers → EDM classifiers → + Create EDM schem
 4. Manually define your data structure:
    - use **Add columns** to add fields
 
-| Field name | Searchable | Ignored delimiters | Match case insensitive |
-|-----------|-----------|-------------------|----------------------|
-| EmployeeID | ☑ Yes | Hyphen `-` | ☑ Yes |
-| FirstName | ☑ Yes | | ☑ Yes |
-| LastName | ☑ Yes | | ☑ Yes |
-| Email | ☑ Yes | | ☑ Yes |
-| Department | ☐ No | | |
-| NationalID | ☑ Yes | Hyphen `-` | ☑ Yes |
-
 5. Click **Next 
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e14e10a6-043f-4a7d-bf51-ea544be592ed" />
@@ -422,58 +413,56 @@ cd "C:\Program Files\Microsoft\EdmUploadAgent"
 .\EdmUploadAgent.exe /Authorize
 # A browser window opens — sign in with your admin account
 ```
-
-### Step 3 — Hash the CSV data
-
-```powershell
-# Hash the data (creates a .edmhash file — this is what gets uploaded, not the CSV)
-.\EdmUploadAgent.exe /CreateHash `
-    /DataStoreName ContosoEmployeeSchema `
-    /DataFile "C:\EDMData\EmployeeData.csv" `
-    /HashLocation "C:\EDMData\Hashed" `
-    /Schema "C:\EDMData\ContosoEmployeeSchema.xml" `
-    /AllowedBadLinesPercentage 5
-
-# Expected output:
-# Hashing complete. Output written to: C:\EDMData\Hashed\
-```
-
-> The `/AllowedBadLinesPercentage 5` flag tolerates up to 5% malformed rows without failing the job.
-
-### Step 4 — Retrieve and save the schema XML
+### Step 3 — Retrieve and save the schema XML
 
 ```powershell
 # Save your schema to XML (needed for hashing)
 .\EdmUploadAgent.exe /SaveSchema `
     /DataStoreName contosoemployeeschemaSchema `
-    /OutputDir "C:\EDMData"
+    /OutputDir "C:\Users\Sundar s\Desktop\EDM Data"
 
 # Verify the schema file was saved
-Get-Item "C:\EDMData\ContosoEmployeeSchema.xml"
+Get-Item "C:\Users\Sundar s\Desktop\EDM Data\contosoemployeeschemaSchema.xml"
 ```
 
-### Step 5 — Upload the hashed data
+### Step 4 — Validate data file against the Schema
 
 ```powershell
-# Upload the hashed data to Purview
-.\EdmUploadAgent.exe /UploadHash `
-    /DataStoreName ContosoEmployeeSchema `
-    /HashLocation "C:\EDMData\Hashed"
+# Validate data file against the Schema (optional)
+.\EdmUploadAgent.exe /ValidateData `
+    /DataFile "C:\Users\Sundar s\Desktop\EDM Data\ContosoEmployeeSchema.csv" `
+    /Schema "C:\Users\Sundar s\Desktop\EDM Data\contosoemployeeschemaSchema.xml"
 
-# Monitor upload progress
-.\EdmUploadAgent.exe /GetSession `
-    /DataStoreName ContosoEmployeeSchema
+# Expected output:
+# Completed ValidateData command. Data file: C:\Users\Sundar s\Desktop\EDM Data\ContosoEmployeeSchema.csv passed the schema validation.
 ```
+
+### Step 5 — Create Hash and upload the hashed data
+
+```powershell
+# Create Hash and upload the hashed data to Purview
+.\EdmUploadAgent.exe /UploadData `
+    /DataStoreName contosoemployeeschemaSchema `
+    /DataFile "C:\Users\Sundar s\Desktop\EDM Data\ContosoEmployeeSchema.csv" `
+    /HashLocation "C:\Users\Sundar s\Desktop\EDM Data\Hashed" `
+    /Schema "C:\Users\Sundar s\Desktop\EDM Data\contosoemployeeschemaSchema.xml" `
+    /AllowedBadLinesPercentage 5
+```
+> The `/AllowedBadLinesPercentage 5` flag tolerates up to 5% malformed rows without failing the job.
 
 ### Step 6 — Verify the upload
 
 ```powershell
 # Check that data is indexed and ready
-.\EdmUploadAgent.exe /GetSession /DataStoreName ContosoEmployeeSchema
+.\EdmUploadAgent.exe /GetSession /DataStoreName contosoemployeeschemaSchema
 
 # Expected output when ready:
-# Processing Complete. Your EDM table is ready.
+# Id, Connector Id, State, % Completion, CreationTime, LastUpdatedTime, CompletionTime.
+  1bffc148-d6cc-4334-a821-690b6bb4dd5b, 520712e4-0f7a-427a-9b6d-6e48bf3bb71d, Completed, 100, 29-03-2026 13:37:03, 29-03-2026 13:45:12, 29-03-2026 13:45:12
+  Command completed successfully.
 ```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/439187b7-8f02-4491-9874-ae38d0e2d31f" />
 
 > Indexing typically takes **15–60 minutes** for small datasets. Large datasets can take several hours.
 
