@@ -294,7 +294,7 @@ EDM matches content against actual records from your organization's database. It
 
 ```
 1. EDM Schema       — defines the columns and which are searchable
-2. Sensitive data   — your actual CSV data (employee/customer records)
+2. Sensitive data   — your actual CSV data (employee/customer records) or custom SIT
 3. Hash + upload    — data is hashed before upload (never stored in plaintext)
 4. EDM SIT          — the classifier that uses the schema to detect matches
 ```
@@ -320,13 +320,17 @@ EMP-10050,Ravi,Patel,r.patel@contoso.com,Engineering,987-65-4328
 
 Navigate to **Purview → Classifiers → EDM classifiers → + Create EDM schema**
 
-1. **Schema name:** `ContosoEmployeeSchema`
-2. **Description:** `Employee data schema for EDM classification`
-3. Click **Next**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/21c5bb65-9ac6-4647-ad97-d6424d0c20fe" />
 
-### Step 3 — Add schema fields
+1. **Schema name:** `ContosoEmployeeSchema` and **Description:** `Employee data schema for EDM classification`
+2.  Click **Next**
 
-Add each column from your CSV:
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/720fd50b-90ef-42a6-b8b0-387739ffa53c" />
+
+3. **Add schema fields**
+
+4. Manually define your data structure:
+   - use **Add columns** to add fields
 
 | Field name | Searchable | Ignored delimiters | Match case insensitive |
 |-----------|-----------|-------------------|----------------------|
@@ -337,24 +341,37 @@ Add each column from your CSV:
 | Department | ☐ No | | |
 | NationalID | ☑ Yes | Hyphen `-` | ☑ Yes |
 
-> Mark only the fields you want Purview to scan documents for as **Searchable**. Non-searchable fields are used as corroborating evidence only.
+5. Click **Next 
 
-4. Click **Next → Submit**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e14e10a6-043f-4a7d-bf51-ea544be592ed" />
 
-### Step 4 — Create the EDM SIT
+6. Select Primary Elements  **EmployeeID → Match mode → Choose SIT** `Contoso Employee ID`
 
-Navigate to **Classifiers → Sensitive info types → + Create**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c648d210-2bdc-433c-ab70-18d74c74591d" />
 
-1. **Name:** `Contoso Employee EDM`
-2. **Description:** `Exact match against Contoso employee records`
-3. Click **Next**
-4. **Primary element:** **EDM data store**
-5. Select schema: **ContosoEmployeeSchema**
-6. **Primary field:** `EmployeeID`
-7. **Corroborating fields** (add at least one for high confidence):
-   - `LastName`
-   - `Email`
-8. Click **Done → Next → Create**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/af27a2c3-1e19-4cf8-b594-2f4f258a9ae7" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2b5afb78-8426-48e6-96bb-924d0b029edf" />
+
+7. Select `EmployeeID` as **Primary element**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b6efc94f-889c-421d-8cc2-40cb73537968" />
+
+8. Click **Next**
+
+9. **Configure settings for data in selected columns**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/639fa190-0480-4928-96e9-912df8d351a6" />
+
+10. **Configure detection rules for primary elements**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8a76c9f4-29d7-4b22-8bd2-0a3da5f36c03" />
+
+11. Review settings and **Submit**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a5ac7f68-61db-4a58-ac67-129532021a67" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eebbab07-fd31-4407-89cd-3e520b365164" />
 
 ---
 
