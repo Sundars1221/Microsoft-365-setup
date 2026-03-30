@@ -5,12 +5,10 @@ This phase covers setting up the on-premises infrastructure including:
 - Installing Active Directory Domain Services
 - Promoting Lab-DC01 as a Domain Controller
 - Creating OUs/Users/Groups
-- Installing and configuring Exchange Server 2019 on Lab-EX01
 **Status: ✅ Complete**
-  
 ---
 
-## Part A: Domain Controller Setup (Lab-DC01)
+## Domain Controller Setup
 
 ### Step 1: Install AD DS Role
 1. Open **Server Manager** → **Manage** → **Add Roles and Features**
@@ -46,7 +44,7 @@ This phase covers setting up the on-premises infrastructure including:
 
 | Setting | Value |
 |---|---|
-| Root domain name | M365LAB.in |
+| Root domain name | torvexis.xyz |
 | Forest functional level | Windows Server 2016 |
 | Domain functional level | Windows Server 2016 |
 | DNS Server | ✅ Enabled |
@@ -58,7 +56,7 @@ This phase covers setting up the on-premises infrastructure including:
 
 5. Click through wizard → **Install** → Server reboots automatically
 
-### Step 3: Create OU, Users, and Groups 
+## Step 3: Create OU, Users, and Groups 
 1. Open **Active Directory Users and Computers**
    <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4ff1e7b4-c69f-48bb-9a20-efe1ed16f161" />
   
@@ -84,25 +82,67 @@ This phase covers setting up the on-premises infrastructure including:
    <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/54f9816d-f3a6-4a97-ac0f-aa9167e3ee4e" />
    <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/53c36a11-785f-4567-80a7-652a6db6a70d" />
    <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/48e89698-d883-42cf-847b-989b8c25e04a" />
-
-
-
-
-
+   
 ---
 
-## Part B: Exchange Server Setup (Lab-EX01)
+## Phase 2: Exchange Server Setup
 
-### Step 5: Set DNS & Join Domain
+## Overview
+This phase covers setting up the on-premises infrastructure including:
+- Installing and configuring Exchange Server 2019
+- 
+
+### Step 1: Set DNS & Join Domain
 1. Set preferred DNS to `10.0.1.4` (DC private IP) in network adapter settings
-2. Right-click **Start** → **System** → **Rename this PC (advanced)**
-3. Join domain `corp.lab` with `CORP\labadmin` credentials → Reboot
 
-### Step 6: Install Prerequisites
-1. Open **Server Manager** → **Add Roles and Features**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3f9f8f72-2754-41c8-9502-9d3bda9b8ac6" />
+
+2. Right-click **Start** → **System** → **Rename this PC (advanced)**
+3. Join domain `torvexis.xyz` with `Torvexis_Admin` credentials → Reboot
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b55c4ca0-70ba-4e64-86fe-a84f6cf71d22" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b25f384e-6fdd-4f45-9acc-a5567a8181ce" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/72ff59ec-3840-4e38-aa7b-012c3bbb8b3c" />
+
+### Step 2: Install Prerequisites
+
+```https://learn.microsoft.com/en-us/exchange/plan-and-deploy/prerequisites```
+
+1. Open **Server Manager** in Exchange server → **Add Roles and Features**
 2. Install **Web Server (IIS)** with all default sub-features
-3. Download and install **.NET Framework 4.8**
-4. Reboot if prompted
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a726e42e-5d31-4cca-b579-8d8b4585560d" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bcbd7b08-2425-4bd0-96e7-8e906b3a253c" />
+
+3. Download and install **.NET Framework 4.8** (optional, installs along with IIS role & feautures)
+4. Download and install **Visual C++ Redistributable Package for Visual Studio 2012/2013**
+5. Download and install **Unified Communications Managed API 4.0.**
+6. Reboot the machine
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/76a2bad2-760c-429a-a349-53dd750f67de" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1f65ab1e-a858-42c2-9c03-2b32eba87ca4" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c17844ce-23ab-4551-9eeb-11b880e820d7" />
+
+7. Install the Remote Server Administration Tools (RSAT) for Active Directory Domain Services (ADDS) on DC
+   
+```PowerShell
+Install-WindowsFeature RSAT-ADDS
+```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/001311d5-59b5-44e5-9abd-ba5845648045" />
+
+8. Prepare server for installation
+
+```PowerShell
+Install-WindowsFeature Server-Media-Foundation, NET-Framework-45-Core, NET-Framework-45-ASPNET, NET-WCF-HTTP-Activation45, NET-WCF-Pipe-Activation45, NET-WCF-TCP-Activation45, NET-WCF-TCP-PortSharing45, RPC-over-HTTP-proxy, RSAT-Clustering, RSAT-Clustering-CmdInterface, RSAT-Clustering-Mgmt, RSAT-Clustering-PowerShell, WAS-Process-Model, Web-Asp-Net45, Web-Basic-Auth, Web-Client-Auth, Web-Digest-Auth, Web-Dir-Browsing, Web-Dyn-Compression, Web-Http-Errors, Web-Http-Logging, Web-Http-Redirect, Web-Http-Tracing, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Metabase, Web-Mgmt-Console, Web-Mgmt-Service, Web-Net-Ext45, Web-Request-Monitor, Web-Server, Web-Stat-Compression, Web-Static-Content, Web-Windows-Auth, Web-WMI, Windows-Identity-Foundation, RSAT-ADDS
+```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/62b4c971-77e2-497c-8137-30c2cde2f0ed" />
 
 ### Step 7: Download & Mount Exchange ISO
 1. Download Exchange Server 2019 Trial from Microsoft
