@@ -1,10 +1,6 @@
-# Lab 01: Mailbox Management 📬
+# Mailbox Management 📬
 
-**Difficulty**: ⭐ Beginner
-**Duration**: 60–90 mins
-**MS-203 Domain**: Manage Organizational Settings and Resources (30–35%)
-
-## 🎯 What You'll Learn
+##  Overview
 - Create and manage user, shared, room, and equipment mailboxes
 - Configure mailbox permissions and delegation
 - Set mailbox quotas and limits
@@ -18,9 +14,15 @@
 ### GUI Steps (Exchange Admin Center)
 
 **User Mailbox:**
-1. Go to `https://localhost/ecp` (on-prem) or `https://admin.exchange.microsoft.com` (online)
+1. Go to `https://localhost/ecp` (on-prem)
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9c830c8b-fc0b-4cef-827d-47b0f9b0d2d8" />
+
 2. **Recipients** → **Mailboxes** → Click **+** → **User Mailbox**
-3. Fill in:
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/71dd3344-2d6e-451a-b32c-b8f52773389b" />
+
+4. Fill in:
 
 | Field | Value |
 |---|---|
@@ -30,10 +32,17 @@
 | Password | YourStr0ngP@ssword! |
 | Mailbox database | (leave default) |
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7c6579dd-256e-469d-ac42-7b8d4e99f55c" />
+
 4. Click **Save**
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/59804cbb-d30b-43ff-8cf1-8baaa7c8acd7" />
+
 **Shared Mailbox:**
-1. **Recipients** → **Mailboxes** → **+** → **Shared Mailbox**
+1. **Recipients** → **Shared** → **+** → 
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8781a50e-fcdb-4f2b-bc67-7e7907d8915b" />
+
 2. Fill in:
 
 | Field | Value |
@@ -43,8 +52,15 @@
 
 3. Click **Save** → Add members who need access
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6fc85508-2db2-4567-883d-bb18872be479" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7fe2ba24-f87e-4a43-a861-a12d6349b7d4" />
+
 **Room Mailbox:**
 1. **Recipients** → **Resources** → **+** → **Room Mailbox**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/37b71faf-4b5c-49df-8141-e73afa07faf4" />
+
 2. Fill in:
 
 | Field | Value |
@@ -53,9 +69,13 @@
 | Email address | confrooma@yourdomain.com |
 | Capacity | 20 |
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/58ed9938-701b-4e29-bf53-1853eabe98a1" />
+
 3. Click **Save**
 
-### PowerShell
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/83141832-18fc-4a4a-95fa-92029a97dd3d" />
+
+### PowerShell (Exhange Management Shell)
 
 ```powershell
 # Connect to Exchange On-Prem (run on EX01)
@@ -92,6 +112,7 @@ New-Mailbox -Equipment `
 # Verify all mailboxes
 Get-Mailbox | Select Name, RecipientTypeDetails, PrimarySmtpAddress | Format-Table -AutoSize
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8af0fd85-ae62-4c76-bfdf-c1d298c14993" />
 
 ---
 
@@ -105,7 +126,7 @@ Get-Mailbox | Select Name, RecipientTypeDetails, PrimarySmtpAddress | Format-Tab
 5. Under **Send As** → Click **+** → Add `jsmith`
 6. Click **Save**
 
-### PowerShell
+### PowerShell (Exhange Management Shell)
 
 ```powershell
 # Grant Full Access to shared mailbox
@@ -115,12 +136,6 @@ Add-MailboxPermission -Identity "itsupport" `
     -InheritanceType All `
     -AutoMapping $true
 
-# Grant Send As permission
-Add-RecipientPermission -Identity "itsupport" `
-    -Trustee "jsmith" `
-    -AccessRights SendAs `
-    -Confirm:$false
-
 # Grant Send on Behalf
 Set-Mailbox -Identity "itsupport" `
     -GrantSendOnBehalfTo "jsmith"
@@ -129,6 +144,8 @@ Set-Mailbox -Identity "itsupport" `
 Get-MailboxPermission -Identity "itsupport" | Where {$_.User -notlike "NT AUTHORITY*"}
 Get-RecipientPermission -Identity "itsupport" | Where {$_.Trustee -notlike "NT AUTHORITY*"}
 ```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/45f5092b-5015-41cd-bdc4-82f423848950" />
 
 ---
 
@@ -148,7 +165,7 @@ Get-RecipientPermission -Identity "itsupport" | Where {$_.Trustee -notlike "NT A
 
 5. Click **Save**
 
-### PowerShell
+### PowerShell (Exhange Management Shell)
 
 ```powershell
 # Set mailbox quota for a single user
@@ -170,6 +187,8 @@ Get-MailboxStatistics -Identity "jsmith" |
     Select DisplayName, TotalItemSize, ItemCount, StorageLimitStatus
 ```
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/80db3df9-4ec4-4180-a861-82e584de664c" />
+
 ---
 
 ## Exercise 1.4 — Add Email Aliases
@@ -180,7 +199,7 @@ Get-MailboxStatistics -Identity "jsmith" |
 3. Click **+** → Enter alias: `john.smith@yourdomain.com`
 4. Click **OK** → **Save**
 
-### PowerShell
+### PowerShell (Exhange Management Shell)
 
 ```powershell
 # Add email alias
@@ -194,6 +213,7 @@ Get-Mailbox -Identity "jsmith" | Select -ExpandProperty EmailAddresses
 Set-Mailbox -Identity "jsmith" `
     -PrimarySmtpAddress "john.smith@yourdomain.com"
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a2ec26e1-5e95-4139-aa65-bc6a803b16b6" />
 
 ---
 
@@ -203,6 +223,8 @@ Set-Mailbox -Identity "jsmith" `
 1. EAC → **Recipients** → **Groups** → **+** → **Distribution Group**
 2. Fill in:
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5c458fd2-be36-4293-a8b8-c2ef80b047e4" />
+
 | Field | Value |
 |---|---|
 | Display name | IT Team |
@@ -211,9 +233,17 @@ Set-Mailbox -Identity "jsmith" `
 | Members | Add jsmith and other users |
 | Owner | labadmin |
 
-3. Click **Save**
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/25ec2445-b6ac-4db2-b535-72d3de5491ff" />
 
-### PowerShell
+3. Restrict members joining and leaving
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fa73507e-d1f9-4ebe-bbf0-0b64b99ea716" />
+
+4.  Click **Save**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7b6b4a3e-1252-42ce-8968-9c03bb2d93f1" />
+
+### PowerShell (Exhange Management Shell)
 
 ```powershell
 # Create Distribution Group
@@ -236,22 +266,3 @@ Get-DistributionGroupMember -Identity "itteam" | Select Name, PrimarySmtpAddress
 ```
 
 ---
-
-## ✅ Lab 01 Checklist
-
-- [ ] User mailbox created
-- [ ] Shared mailbox created with Full Access and Send As permissions
-- [ ] Room and Equipment mailboxes created
-- [ ] Mailbox quotas configured
-- [ ] Email alias added
-- [ ] Distribution group created
-- [ ] Dynamic distribution group created
-- [ ] All tasks completed via PowerShell
-
----
-
-## 💡 Key Exam Tips (MS-203)
-- Know the difference between **Send As**, **Send on Behalf**, and **Full Access**
-- **Dynamic Distribution Groups** use recipient filters — members are resolved at send time
-- Shared mailboxes don't need a license unless mailbox exceeds 50GB
-- Room mailboxes can be configured for **auto-accept** of meeting requests
