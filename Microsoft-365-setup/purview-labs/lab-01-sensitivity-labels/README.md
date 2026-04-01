@@ -158,19 +158,34 @@ Navigate to **Information Protection → Policies → Auto-labeling policies →
 
 
 ### Step 1 — Choose a template
-- Select: **Financial data**
-- This pre-populates Credit Card, ABA Routing Number, Bank Account Number
+- Select: **Financial data** and **Regulations**
+- This pre-populates Credit Card, ABA Routing Number, Bank Account Number etc
 - Click **Next**
 
-### Step 2 — Name the policy
-- Name: `Auto-label Financial Documents`
-- Description: `Applies Confidential - Finance when financial content detected`
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/01ae7923-a694-48cf-95b5-ec77a2fbc1b2" />
 
-### Step 3 — Set locations
+### Step 2 — Name the policy
+- Name: `Auto-label Financial Documents_U.K. Financial Data`
+- Description: `Applies Confidential - Finance when U.K financial content detected`
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/920ed6e0-fe1c-44d0-bcb8-a38c88e3b8a2" />
+
+### Step 3 - Choose label to apply
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/fd21773c-18bf-412d-bd3c-91fd3b3b8661" />
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/0f818688-9663-4911-9e16-4ee5e33d85af" />
+
+skip admin units
+
+### Step 4 — Set locations
 - ☑ SharePoint sites (All sites)
+- ☑ OneDrive accounts (All)
 - ☑ Exchange email (All)
 
-### Step 4 — Set conditions
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/c9740d65-3dce-4a93-be6e-b8f51a811276" />
+
+### Step 4 — Set up policy rules
 Keep defaults and add:
 - Content contains: **Financial Statement** (custom keyword)
 
