@@ -186,47 +186,26 @@ skip admin units
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/c9740d65-3dce-4a93-be6e-b8f51a811276" />
 
 ### Step 4 — Set up policy rules
-Keep defaults and add:
-- Content contains: **Financial Statement** (custom keyword)
+Set up common or advance rules
+- **Common rules** or **Advance rules**
 
-### Step 5 — Set label to apply
-- Choose: **Confidential - Finance**
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/84b80f3e-5466-4052-bd2e-aef6e8911bf6" />
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/7dcd7529-f55f-4019-a7ce-d73542befeed" />
+
+### Step 5 — Configure additional label settings
+- skip **Additional label settings**
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/28c7b9d7-71c2-4522-802f-b17d7a4a23fb" />
 
 ### Step 6 — Run simulation
 - Select: **Run policy in simulation mode**
 - Click **Submit**
-- Wait 15–30 minutes for results
+  
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/33a9b003-1c1e-4a0b-87ad-a255f20431d6" />
 
-### Step 7 — Review simulation results
-1. Open the policy → click **View matched items**
-2. Review documents/emails that matched
-3. When satisfied → click **Turn on policy**
+### Step 7 — Review and create policy
 
----
-
-## Validation Checklist
-
-- [ ] Labels appear in the Office apps ribbon
-- [ ] Label downgrade prompts for justification
-- [ ] Email footer is visible in sent messages
-- [ ] Auto-labeling simulation shows expected matches
-- [ ] Encryption prevents unauthorized access to Confidential files
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/fba44a48-3d63-49c2-8740-a92b34769e37" />
 
 ---
-
-## Key Concepts
-
-| Concept | Notes |
-|---------|-------|
-| **Label priority** | Higher number = higher priority. Lower-priority labels cannot override higher. |
-| **Mandatory labeling** | Users must pick a label before saving/sending |
-| **Auto-labeling** | Server-side (Exchange/SharePoint) vs client-side (Office apps) |
-| **Encryption scope** | Rights Management encryption persists even if file is downloaded |
-
----
-
-## Next Lab
-
-➡ [Lab 02 — Data Loss Prevention (DLP) Policies](../lab-02-dlp/README.md)
-
-> DLP policies can use the sensitivity labels you created here as conditions. Complete Lab 01 first.
