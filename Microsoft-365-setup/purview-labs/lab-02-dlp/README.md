@@ -16,37 +16,60 @@
 
 Navigate to **https://purview.microsoft.com → Solutions → Data Loss Prevention → Policies → Create policy**
 
-### Step 1 — Select a template
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/85a61f60-e36a-4da8-bf4b-1816ae1d790e" />
+
+### Step 1 — Choose info which do you want to protect
+- Choose **Enterprise applications & devices**
+
+### Step 2 — Select a template
 - Category: **Financial**
 - Template: **U.S. Financial Data**
   - Includes: Credit Card Number, ABA Routing Number, US Bank Account
 - Click **Next**
 
-### Step 2 — Name the policy
-- Name: `Lab - US Financial Data Protection`
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/60bbb170-1425-4b63-8b1e-5408038f4e81" />
+
+### Step 3 — Name the policy
+- Name: `US Financial Data Protection`
 - Description: `Blocks sharing of US financial data externally`
 
-### Step 3 — Select locations
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/36ad2f57-425e-4374-baf9-b77dd5ad1aba" />
+
+### Step 4 — Assign admin units
+- Skip Admin units
+
+### Step 5 — Select locations
 Enable all of the following:
 - ☑ Exchange email
 - ☑ SharePoint sites
 - ☑ OneDrive accounts
 - ☑ Teams chat and channel messages
 
-> Leave **Devices** and **Defender for Cloud Apps** for Section B.
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/4de78c11-0282-4df6-af2c-021089b76029" />
 
-### Step 4 — Customize conditions
-Change the default to:
-- Content contains: **Credit Card Number**
-- Confidence level: **High**
-- Instance count: **2 or more**
+### Step 4 — Define policy settings
+- Review and customize default settings
+- or create advanced DLP rules
 
-### Step 5 — Configure actions
-- For external sharing: **Block everyone except content owners**
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/af1a6ca5-6ef3-4b17-8c7a-e3f0a1d88f02" />
+
+- Info to protect
+- Detect when this content is shared from Microsoft 365 → "With people outside my organization"
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/f3dffcb8-5e4b-44f0-a977-5dcc031292c3" />
+
+### Step 5 — Protect actions
 - ☑ Show policy tip to users
 - Customize tip: `This message contains financial data and cannot be shared externally.`
+- Configure specific set of admins to be notified
+- Upate compliance URL for end user
 
-### Step 6 — Set notifications
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/d7bab996-aa76-4de8-840b-f9e116dc7c9e" />
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/b77933c6-743f-4cb5-8bed-7aef9b51534a" />
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/d5efdbfc-dd15-4380-b724-9bb8f6794f32" />
+
 - ☑ Send incident reports
 - Severity: **High**
 - Send email to: your admin account
