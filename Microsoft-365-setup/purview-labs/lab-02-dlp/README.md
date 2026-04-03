@@ -70,19 +70,26 @@ Enable all of the following:
 
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/d5efdbfc-dd15-4380-b724-9bb8f6794f32" />
 
+- ☑ Send alerts if any of the DLP rules match  (optional)
 - ☑ Send incident reports
-- Severity: **High**
-- Send email to: your admin account
 
-### Step 7 — Enable in test mode
-- Select: **Test it out first — show policy tips**
-- Click **Submit**
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/a314d267-476d-4c89-bddb-57dcb0f0ec45" />
 
-### Step 8 — Test the policy
-1. Compose an email to your external Gmail address
-2. Body text: `Please process card number 4539578763621486 and 4916338506082832`
-3. Observe the **policy tip** appearing before you send
-4. Check your admin inbox for the incident report email
+### Step 7 — Customize access and override settings
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/8075d955-ce9d-49e5-90dc-c11deb5dc886" />
+
+### Step 8 — Run the policy in simulation mode
+- Select: **Show policy tips while in simulation mode**
+- Click **Next**
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/f5f7e53c-152b-4cfd-a336-e8f2cb310e93" />
+
+### Step 8 — Review and create policy
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/65f30ac8-9188-470c-a1a9-669e3d8f11d9" />
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/41dd2b8d-1534-4ea9-9a20-de10cdbfa154" />
 
 ---
 
