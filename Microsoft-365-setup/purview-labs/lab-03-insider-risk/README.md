@@ -1,6 +1,4 @@
-# Lab 03 — Insider Risk Management
-
-**Duration:** 90 minutes | **Level:** Advanced | **Skill Area:** Insider Risk
+# Insider Risk Management
 
 ---
 
@@ -11,25 +9,6 @@
 - Generate test signals to trigger alerts
 - Investigate a case using the user activity timeline
 - Escalate a case to eDiscovery
-
-## Learning Outcomes
-
-| Outcome | Validated By |
-|---------|-------------|
-| Create data theft policy | Policy active in IRM portal |
-| Investigate user timeline | Case opened, activities reviewed |
-| Escalate to eDiscovery | Linked eDiscovery case created |
-
----
-
-## Prerequisites
-
-- [ ] Microsoft 365 **E5** or **M365 E5 Compliance** add-on license
-- [ ] Lab 01 completed (sensitivity labels needed for priority content)
-- [ ] At least 2 test user accounts (1 admin, 1 regular user)
-- [ ] 48–72 hours for initial signal population in a new tenant
-
-> **Tip:** In a fresh test tenant, manually trigger activities (bulk downloads, external emails) to generate signals faster. Low threshold settings also help accelerate alerts.
 
 ---
 
