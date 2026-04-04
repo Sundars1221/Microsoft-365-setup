@@ -62,6 +62,8 @@ Install Certficates in Exchange Server for TLS encryption
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5bec4e42-9d92-49e4-8439-7d130870b7b7" />
 
 
+
+
 Allow Port 25
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/03396330-ca0e-4c02-9f28-a3c2f17e01cc" />
@@ -190,6 +192,9 @@ Test Inbound SMTP Email
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3e5e5298-0bda-4735-943e-bbae03dba798" />
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2841083e-39bd-48c4-a13b-c6c66ffb43f4" />
+
+
 ## Configure Exchange server for outbound email
 
 ## Option 1: MX record associated with recipient domain
@@ -216,7 +221,7 @@ Internet Send Connector
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e6ec539b-6cc1-4fd7-ab5d-453ca76b789f" />
 
-Test Inbound SMTP Email
+Test Outbound SMTP Email
 
 ```
 https://testconnectivity.microsoft.com/tests/OutboundSMTP/input
@@ -228,7 +233,7 @@ https://testconnectivity.microsoft.com/tests/OutboundSMTP/input
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/342fa347-adaa-4708-a0cb-b9dc8a67790d" />
 
-## Option 1: MX record associated with recipient domain
+## Option 2: Smart Host relay
 
 
 3. Click **Receive Connectors** → Review default connectors:
