@@ -236,6 +236,44 @@ https://testconnectivity.microsoft.com/tests/OutboundSMTP/input
 ## Option 2: Smart Host relay
 
 
+Go to https://admin.exchange.microsoft.com
+Left menu → Mail flow → Connectors
+Click + Add a connector
+Configure:
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b2d2732b-2f36-4b2a-bc47-d30f9f02faa0" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c643981f-e654-40dc-849d-dc3699c5a8be" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/eae6ed0a-5aa8-4388-8a5a-72c5cf957cb0" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5cbd5f49-65f6-4409-895a-114041ca597c" />
+
+
+
+
+```
+# Create Send Connector on EX01
+# Run in Exchange Management Shell on EX01
+
+New-SendConnector `
+    -Name "Outbound to M365" `
+    -Usage Internet `
+    -AddressSpaces "SMTP:*;1" `
+    -DNSRoutingEnabled $false `
+    -SmartHosts "yourtenant.mail.protection.outlook.com" `
+    -SmartHostAuthMechanism TLS `
+    -RequireTLS $true `
+    -TlsAuthLevel DomainValidation `
+    -DomainSecureEnabled $false `
+    -SourceTransportServers "EX01"
+
+# Verify connector
+Get-SendConnector "Outbound to M365" |
+    Select Name, SmartHosts, RequireTLS, Enabled
+
+```   
+
 3. Click **Receive Connectors** → Review default connectors:
    - **Default Frontend** (port 25 — inbound from internet)
    - **Client Frontend** (port 587 — authenticated client submission)
