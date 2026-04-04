@@ -11,6 +11,57 @@
 
 ## Pre-requisites
 
+Install Certficates in Exchange Server for TLS encryption
+
+```https://certifytheweb.com```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f6ba314b-c935-485d-894c-41136255ac36" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/db22ed08-b3ec-46af-af93-fbb28744d7a9" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/71e749d1-a4d7-42a7-9069-40b389d6bb87" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/73e8118d-e181-4877-8ff6-28dbdbce0be3" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e2d8149b-bf88-410c-af63-d9936902e666" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d905e5b4-c9d1-4351-aa92-7aa8e2021318" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/90880edb-1f6e-413a-be21-a52f618aea99" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4cd92aea-d0ef-428a-90fc-091710e5bc99" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/094b5811-8c45-4889-a6c3-e870fc02ed67" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/62ebef6b-ddac-4841-b24e-37e9976de22a" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/28d81841-7fbc-4dce-a69f-f95ef8d89979" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fae7e463-bb96-48a8-aefc-612371400ba2" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/83d5766d-d3a1-438b-b952-4ae9fc08fbb9" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/16960f5d-097e-44f3-9133-1cc4132718fe" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6dc7938a-7ee1-41ef-a4cf-0d70baa7cb04" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7234727e-4867-4705-8abd-1b405cef9faf" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8d9d9f94-f04e-4d34-a9b5-ae3c117b3b6d" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6f24cf81-2197-4590-9380-e4c450411a2f" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/683c184d-6012-48fc-8e42-56c4b7d93ac4" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/856ce174-a6fa-4507-b968-b4c1d318ee5d" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/18c7199f-4816-432d-a418-3f604a84ec18" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6a2187fc-802e-42ef-a8b4-ed164b13edbf" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5bec4e42-9d92-49e4-8439-7d130870b7b7" />
+
+
 Allow Port 25
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/03396330-ca0e-4c02-9f28-a3c2f17e01cc" />
@@ -139,9 +190,9 @@ Test Inbound SMTP Email
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3e5e5298-0bda-4735-943e-bbae03dba798" />
 
-## Exercise 2.1 — Inspect Default Connectors
+## Configure Exchange server for outbound email
 
-### GUI Steps
+## Option 1: MX record associated with recipient domain
 1. EAC (on-prem) → **Mail Flow** → **Send Connectors**
 2. Create the default Internet send connector
 
@@ -177,7 +228,7 @@ https://testconnectivity.microsoft.com/tests/OutboundSMTP/input
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/342fa347-adaa-4708-a0cb-b9dc8a67790d" />
 
-
+## Option 1: MX record associated with recipient domain
 
 
 3. Click **Receive Connectors** → Review default connectors:
