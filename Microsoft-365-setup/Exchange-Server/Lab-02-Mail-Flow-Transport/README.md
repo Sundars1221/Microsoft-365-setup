@@ -1,4 +1,4 @@
-# Mail Flow & Transport Rules 📨
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0ae3ed3e-79a5-4f46-9091-9c4831c591e7" /># Mail Flow & Transport Rules 📨
 
 ## Overview
 - Configure Send and Receive connectors
@@ -335,9 +335,9 @@ Get-SendConnector "Internet Send Connector" | Select Name, AddressSpaces, Enable
 2. Click **General** → Set **Maximum receive message size**: `25 MB`
 3. Click **Save**
 
-Also set org-level limits:
-1. EAC → **Mail Flow** → **Message Size Restrictions**
-2. Set max send/receive sizes
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e617d279-b679-4960-916e-cf9113724e0d" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0b695bad-f142-46c5-8ef5-b14282a98eb0" />
 
 ### PowerShell
 
@@ -377,6 +377,8 @@ Get-SendConnector | Select Name, MaxMessageSize
 1. EAC → **Mail Flow** → **Rules** → **+** → **Apply disclaimers**
 2. Configure:
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/43c74f24-cbc2-4ce5-957e-3ed8967d6352" />
+
 | Field | Value |
 |---|---|
 | Name | Company Email Disclaimer |
@@ -385,7 +387,13 @@ Get-SendConnector | Select Name, MaxMessageSize
 | Disclaimer text | `<p>This email is confidential. If received in error, please delete immediately.</p>` |
 | Fallback action | Wrap |
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/148c4fa2-dd2b-4770-b288-bc3a0cd92ac6" />
+
 3. Click **Save**
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b08af5f1-2b66-4915-8e58-6103d30c8611" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/be60547b-70cc-4cf2-a453-f6bc099df1a4" />
 
 **Rule 2 — Block External Forwarding:**
 1. EAC → **Mail Flow** → **Rules** → **+** → **Create new rule**
@@ -398,6 +406,8 @@ Get-SendConnector | Select Name, MaxMessageSize
 | AND recipient is located | Outside the organization |
 | Do the following | Block the message → Reject with explanation |
 | Rejection reason | External email forwarding is not permitted |
+
+
 
 ### PowerShell
 
@@ -437,6 +447,10 @@ Get-TransportRule | Select Name, Priority, State | Format-Table -AutoSize
 Disable-TransportRule -Identity "Company Email Disclaimer"
 Enable-TransportRule -Identity "Company Email Disclaimer"
 ```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/482f2bee-c3df-444c-a81c-68536d847341" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/805091fc-9b73-428f-8c6b-c188b48b3151" />
 
 ---
 
@@ -479,22 +493,3 @@ Get-MessageTrackingLog `
 ```
 
 ---
-
-## ✅ Lab 02 Checklist
-
-- [ ] Default connectors reviewed
-- [ ] Custom Send Connector created
-- [ ] Message size limits configured at org and connector level
-- [ ] Email disclaimer transport rule created
-- [ ] External forwarding block rule created
-- [ ] Message trace performed
-- [ ] All tasks completed via PowerShell
-
----
-
-## 💡 Key Exam Tips (MS-203)
-- Transport rules are processed in **priority order** (lower number = higher priority)
-- **Auto-forward block** is a common real-world security control — know how to implement it
-- Message size limits must be configured at **multiple levels**: org, connector, and mailbox
-- Message trace is the first tool to use for any mail flow issue
-- Know the difference between **SMTP, SMTP AUTH, and submission** ports (25, 587, 465)
